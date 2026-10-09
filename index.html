@@ -1,73 +1,950 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Saikat 🎉</title>
+
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#080b12;color:white}
-section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 18px}
-#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(circle,#1a2b4d,#05070c 65%);text-align:center}
-.center{max-width:700px;margin:auto}.tag{letter-spacing:4px;color:#8fb5ff;font-size:13px}
-h1{font-size:clamp(55px,15vw,100px);margin:15px 0}h2{font-size:clamp(38px,9vw,70px)}
-p{line-height:1.7;color:#bbc4d5;font-size:17px}.btn{border:0;border-radius:30px;padding:15px 28px;font-weight:bold;cursor:pointer;font-size:16px}
-.hero{background:linear-gradient(#080b12,#101b2d)}.hero span{color:#8fb5ff}
-#giftSec{background:#0b111d;text-align:center}.gift{width:220px;height:170px;margin:35px auto;position:relative;cursor:pointer}
-.box{position:absolute;bottom:0;left:15px;width:190px;height:120px;background:#17457f;border:2px solid #82b1ef;border-radius:10px}
-.lid{position:absolute;top:18px;left:7px;width:206px;height:52px;background:#2864ad;border:2px solid #8ab9f3;border-radius:10px;z-index:5;transition:1s}
-.ribbon{position:absolute;left:91px;top:0;width:38px;height:170px;background:#ffffff40;z-index:6}
-.bow{position:absolute;top:-3px;left:80px;font-size:40px;z-index:8;transition:1s}
-.photo{position:absolute;left:50%;bottom:30px;width:125px;height:155px;object-fit:cover;border:7px solid white;box-shadow:0 10px 30px #000;opacity:0;transform:translateX(-50%) scale(.2);z-index:3;transition:1s}
-.gift.open .lid{transform:translateY(-100px) rotate(-6deg);opacity:0}.gift.open .bow{transform:translateY(-100px);opacity:0}.gift.open .photo{opacity:1;transform:translate(-50%,-85px) rotate(-4deg) scale(1)}
-.special{opacity:0;transition:.8s;font-size:21px;color:#dce8ff}.special.show{opacity:1}
-#memories{background:#f4f6fa;color:#101522;display:block}.title{text-align:center;margin-bottom:30px}.title p{color:#687388}
-.grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:white;padding:10px;border-radius:18px;box-shadow:0 12px 35px #1112}.card img{width:100%;height:360px;object-fit:cover;border-radius:12px}.caption{padding:13px 6px;font-weight:bold}.caption small{display:block;color:#77839a;margin-top:5px}
-#final{background:radial-gradient(circle,#1a2c4c,#05070c 65%);text-align:center}.cake{font-size:100px}.final{max-width:720px}.final span{color:#8fb5ff}.sign{color:#8fb5ff;font-weight:bold;letter-spacing:2px;margin-top:25px}
-.conf{position:fixed;top:-20px;width:9px;height:16px;z-index:100;animation:fall 4s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.card img{height:430px}}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080b14;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* INTRO */
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    background:
+      radial-gradient(circle at 50% 40%,#243b65 0%,#101827 35%,#05070c 100%);
+    transition:1s;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    animation:introFloat 3s ease-in-out infinite;
+}
+
+.intro-small{
+    letter-spacing:4px;
+    font-size:13px;
+    color:#9fb7ff;
+    margin-bottom:18px;
+}
+
+.intro-name{
+    font-size:clamp(48px,14vw,95px);
+    font-weight:900;
+    letter-spacing:5px;
+    background:linear-gradient(90deg,#fff,#8fb3ff,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.intro-text{
+    margin:15px 0 30px;
+    color:#b9c3d8;
+    font-size:16px;
+}
+
+.start-btn{
+    padding:15px 27px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#101522;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 30px #769cff55;
+}
+
+@keyframes introFloat{
+    50%{transform:translateY(-10px)}
+}
+
+/* MAIN */
+main{
+    opacity:0;
+    transition:1s;
+}
+
+main.show{
+    opacity:1;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+    background:
+      radial-gradient(circle at 50% 45%,#1c3158 0%,#0c111e 45%,#05070c 100%);
+}
+
+.hero-content{
+    animation:heroIn 1.5s ease;
+}
+
+.hero-emoji{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,11vw,85px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#86aaff;
+}
+
+.hero p{
+    color:#aeb9cf;
+    font-size:18px;
+    max-width:600px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+    color:#8995ad;
+    letter-spacing:2px;
+}
+
+@keyframes heroIn{
+    from{opacity:0;transform:translateY(35px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* STORY */
+.story{
+    padding:80px 18px;
+    max-width:900px;
+    margin:auto;
+}
+
+.section-label{
+    text-align:center;
+    color:#7fa4ff;
+    letter-spacing:3px;
+    font-size:12px;
+    margin-bottom:12px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:clamp(30px,7vw,48px);
+    margin-bottom:50px;
+}
+
+.memory{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-bottom:60px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.memory.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.photo-frame{
+    padding:8px;
+    background:#ffffff08;
+    border:1px solid #ffffff18;
+    border-radius:24px;
+    box-shadow:0 25px 70px #000b;
+}
+
+.photo-frame img{
+    display:block;
+    width:100%;
+    max-height:650px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.memory-text{
+    text-align:center;
+    padding:25px 10px;
+}
+
+.memory-number{
+    color:#779dff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.memory-text h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.memory-text p{
+    color:#9da8bd;
+    line-height:1.7;
+}
+
+/* CAKE */
+.cake-section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    background:linear-gradient(#080b14,#101a2c,#080b14);
+}
+
+.cake-section h2{
+    font-size:clamp(30px,7vw,48px);
+    margin-bottom:10px;
+}
+
+.cake-section p{
+    color:#9da8bd;
+    margin-bottom:50px;
+}
+
+.cake{
+    position:relative;
+    width:230px;
+    height:170px;
+    margin-bottom:45px;
+}
+
+.cake-top{
+    position:absolute;
+    top:45px;
+    left:15px;
+    width:200px;
+    height:45px;
+    background:#5e78ad;
+    border-radius:50%;
+}
+
+.cake-body{
+    position:absolute;
+    top:65px;
+    left:15px;
+    width:200px;
+    height:80px;
+    background:linear-gradient(#718bc1,#40557e);
+    border-radius:0 0 20px 20px;
+}
+
+.cake-bottom{
+    position:absolute;
+    bottom:0;
+    left:15px;
+    width:200px;
+    height:25px;
+    background:#2d3c5b;
+    border-radius:50%;
+}
+
+.candle{
+    position:absolute;
+    top:10px;
+    width:12px;
+    height:42px;
+    background:#e9edf7;
+    border-radius:4px;
+}
+
+.candle:nth-child(1){left:65px}
+.candle:nth-child(2){left:109px}
+.candle:nth-child(3){left:153px}
+
+.flame{
+    position:absolute;
+    top:-17px;
+    left:2px;
+    width:9px;
+    height:16px;
+    background:#ffd166;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    animation:flicker .4s infinite alternate;
+}
+
+@keyframes flicker{
+    to{transform:rotate(-45deg) scale(.8)}
+}
+
+.blow-btn{
+    padding:14px 25px;
+    border:none;
+    border-radius:40px;
+    background:#759cff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.cake.done .flame{
+    opacity:0;
+}
+
+/* GIFT */
+.gift-section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.gift-section h2{
+    font-size:clamp(32px,7vw,48px);
+    margin-bottom:10px;
+}
+
+.gift-section p{
+    color:#9da8bd;
+    margin-bottom:65px;
+}
+
+.gift{
+    width:210px;
+    height:170px;
+    position:relative;
+    cursor:pointer;
+}
+
+.gift-body{
+    position:absolute;
+    bottom:0;
+    left:5px;
+    width:200px;
+    height:125px;
+    background:linear-gradient(135deg,#4169b2,#243b69);
+    border-radius:8px;
+    box-shadow:0 25px 50px #000b;
+}
+
+.gift-body:before{
+    content:"";
+    position:absolute;
+    left:82px;
+    top:0;
+    width:36px;
+    height:100%;
+    background:#dbe5ff;
+}
+
+.gift-lid{
+    position:absolute;
+    left:0;
+    top:25px;
+    width:210px;
+    height:45px;
+    background:linear-gradient(135deg,#5f88df,#31539b);
+    border-radius:8px;
+    z-index:3;
+    transition:1s;
+}
+
+.gift-lid:before{
+    content:"";
+    position:absolute;
+    left:87px;
+    top:0;
+    width:36px;
+    height:100%;
+    background:#dbe5ff;
+}
+
+.gift.open .gift-lid{
+    transform:translateY(-130px) rotate(-7deg);
+    opacity:0;
+}
+
+.gift-bow{
+    position:absolute;
+    top:2px;
+    left:82px;
+    z-index:5;
+    font-size:40px;
+    transition:1s;
+}
+
+.gift.open .gift-bow{
+    transform:translateY(-130px);
+    opacity:0;
+}
+
+.special-photo{
+    display:none;
+    max-width:500px;
+    width:100%;
+    margin-top:35px;
+    animation:photoPop 1s ease;
+}
+
+.gift.open ~ .special-photo{
+    display:block;
+}
+
+.special-photo img{
+    width:100%;
+    max-height:600px;
+    object-fit:cover;
+    border-radius:22px;
+    padding:7px;
+    background:#ffffff10;
+    box-shadow:0 25px 70px #000b;
+}
+
+.special-photo h3{
+    margin-top:20px;
+    font-size:26px;
+}
+
+.special-photo p{
+    margin:8px 0 0;
+}
+
+@keyframes photoPop{
+    from{
+        opacity:0;
+        transform:scale(.5) translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+/* FINAL */
+.final{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:35px 20px;
+    background:
+      radial-gradient(circle at center,#17294b,#070a11 70%);
+}
+
+.final-box{
+    max-width:700px;
+}
+
+.final-emoji{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.final h2{
+    font-size:clamp(36px,9vw,65px);
+    margin-bottom:25px;
+}
+
+.final h2 span{
+    color:#84a8ff;
+}
+
+.final p{
+    color:#b2bdd1;
+    font-size:17px;
+    line-height:2;
+}
+
+.friend{
+    margin-top:30px;
+    font-size:14px;
+    color:#789cff;
+    letter-spacing:2px;
+}
+
+/* PARTICLES */
+.particle{
+    position:fixed;
+    pointer-events:none;
+    z-index:9998;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-30px) rotate(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:92vh;
+    }
+
+    .hero-emoji{
+        font-size:55px;
+    }
+
+    .memory{
+        min-height:auto;
+        margin-bottom:100px;
+    }
+
+    .photo-frame img{
+        max-height:520px;
+    }
+
+    .cake{
+        transform:scale(.9);
+    }
+}
 </style>
 </head>
+
 <body>
-<div id="intro"><div class="center" style="padding:28vh 20px">
-<div class="tag">A LITTLE SURPRISE FOR</div><h1>SAIKAT</h1>
-<p>Bro… don't scroll yet 😎<br>Something special is waiting for you.</p>
-<button class="btn" onclick="start()">✨ OPEN YOUR SURPRISE</button>
-</div></div>
 
-<section class="hero"><div class="center" style="text-align:center">
-<div class="tag">TODAY IS YOUR DAY</div><h2>Happy Birthday, <span>Saikat! 🎉</span></h2>
-<p>Some people are part of the journey… and some become the memories that make the journey worth remembering. Today is for one of those people.</p>
-</div></section>
+<!-- INTRO -->
+<div id="intro">
+    <div class="intro-content">
+        <div class="intro-small">A SPECIAL DAY FOR</div>
 
-<section id="giftSec"><div class="center" style="text-align:center">
-<h2>🎁 One More Thing...</h2><p>Tap the gift. Your special memory is inside.</p>
-<div class="gift" id="gift" onclick="gift()">
-<div class="box"></div><div class="ribbon"></div><div class="lid"></div><div class="bow">🎀</div>
-<img class="photo" src="images/special-memory.jpg">
+        <div class="intro-name">SAIKAT</div>
+
+        <div class="intro-text">
+            Some memories deserve their own little surprise...
+        </div>
+
+        <button class="start-btn" onclick="startWebsite()">
+            ✨ OPEN YOUR SURPRISE
+        </button>
+    </div>
 </div>
-<div class="special" id="special">📸 <b>One Special Memory</b><br>Some moments deserve to stay forever.</div>
-</div></section>
 
-<section id="memories"><div style="width:100%">
-<div class="title"><h2>📸 The Memory Wall</h2><p>Five frames. Five versions of you. One awesome journey.</p></div>
-<div class="grid">
-<div class="card"><img src="images/special-memory.jpg"><div class="caption">01 — The Birthday Memory<small>A moment worth keeping forever 🎂</small></div></div>
-<div class="card"><img src="images/memory-02.jpg"><div class="caption">02 — The Vibe<small>Just being yourself. That's the style.</small></div></div>
-<div class="card"><img src="images/memory-03.jpg"><div class="caption">03 — Main Character Energy<small>Confidence level: FULL 😎</small></div></div>
-<div class="card"><img src="images/memory-04.jpg"><div class="caption">04 — Good Times<small>Simple moments become great memories.</small></div></div>
-<div class="card"><img src="images/memory-05.jpg"><div class="caption">05 — Keep Smiling<small>More adventures, more memories, more madness.</small></div></div>
-</div></div></section>
 
-<section id="final"><div class="final">
-<div class="cake">🎂</div><h2>Happy Birthday <span>SAIKAT!</span></h2>
-<p>May this year bring you more happiness, more success, more crazy adventures and countless moments you'll want to remember.<br><br><b>Here's to another amazing chapter. 🥂</b></p>
-<div class="sign">WITH LOTS OF LOVE & FRIENDSHIP ❤️</div>
-</div></section>
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="hero-emoji">🎉</div>
+
+        <h1>
+            Happy Birthday<br>
+            <span>SAIKAT!</span>
+        </h1>
+
+        <p>
+            Today isn't just another day...
+            it's a reminder of all the crazy,
+            funny and unforgettable moments.
+        </p>
+
+    </div>
+
+    <div class="scroll">
+        ↓ SCROLL TO BEGIN ↓
+    </div>
+</section>
+
+
+<!-- MEMORIES -->
+<section class="story">
+
+    <div class="section-label">
+        OUR LITTLE STORY
+    </div>
+
+    <div class="section-title">
+        Some Moments 📸
+    </div>
+
+
+    <div class="memory">
+
+        <div class="photo-frame">
+            <img src="special-memory.jpg" alt="Memory 1">
+        </div>
+
+        <div class="memory-text">
+            <div class="memory-number">MEMORY 01</div>
+
+            <h2>The Beginning 🎂</h2>
+
+            <p>
+                Every great collection of memories
+                has to start somewhere.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="memory">
+
+        <div class="photo-frame">
+            <img src="memory-02.jpg" alt="Memory 2">
+        </div>
+
+        <div class="memory-text">
+            <div class="memory-number">MEMORY 02</div>
+
+            <h2>Good Times 😎</h2>
+
+            <p>
+                The kind of moments that don't need
+                a reason to become memories.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="memory">
+
+        <div class="photo-frame">
+            <img src="memory-03.jpg" alt="Memory 3">
+        </div>
+
+        <div class="memory-text">
+            <div class="memory-number">MEMORY 03</div>
+
+            <h2>Just Being Us 🔥</h2>
+
+            <p>
+                No perfect plans.
+                Just good people and good vibes.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="memory">
+
+        <div class="photo-frame">
+            <img src="memory-04.jpg" alt="Memory 4">
+        </div>
+
+        <div class="memory-text">
+            <div class="memory-number">MEMORY 04</div>
+
+            <h2>Crazy Days 😂</h2>
+
+            <p>
+                Years later, these are the moments
+                we'll still laugh about.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="memory">
+
+        <div class="photo-frame">
+            <img src="memory-05.jpg" alt="Memory 5">
+        </div>
+
+        <div class="memory-text">
+            <div class="memory-number">MEMORY 05</div>
+
+            <h2>Forever Memories 🤝</h2>
+
+            <p>
+                Some moments pass quickly,
+                but the memories stay.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAKE -->
+<section class="cake-section">
+
+    <h2>Before the next chapter... 🎂</h2>
+
+    <p>
+        Make a wish and blow out the candles.
+    </p>
+
+    <div class="cake" id="cake">
+
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+        <div class="cake-bottom"></div>
+
+    </div>
+
+    <button class="blow-btn" onclick="blowCandles()">
+        🎂 MAKE A WISH
+    </button>
+
+</section>
+
+
+<!-- GIFT -->
+<section class="gift-section">
+
+    <h2>One Last Surprise 🎁</h2>
+
+    <p>
+        There's something special waiting inside...
+    </p>
+
+
+    <div class="gift" id="gift" onclick="openGift()">
+
+        <div class="gift-bow">🎀</div>
+
+        <div class="gift-lid"></div>
+
+        <div class="gift-body"></div>
+
+    </div>
+
+
+    <div class="special-photo">
+
+        <img src="special-memory.jpg" alt="Special Memory">
+
+        <h3>📸 One Special Memory</h3>
+
+        <p>
+            Because some memories are simply too good to forget.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+
+    <div class="final-box">
+
+        <div class="final-emoji">🥳</div>
+
+        <h2>
+            Happy Birthday,<br>
+            <span>Saikat!</span>
+        </h2>
+
+        <p>
+            Wishing you a life full of happiness,
+            success, good health and countless
+            unforgettable moments.
+
+            <br><br>
+
+            Keep smiling.
+            Keep enjoying life.
+            Keep being the crazy person you are.
+
+            <br><br>
+
+            Here's to more adventures,
+            more laughter and many more
+            memories together. 🤝
+        </p>
+
+        <div class="friend">
+            MADE WITH ❤️ FOR A SPECIAL FRIEND
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
 
 <script>
-function start(){document.getElementById('intro').style.display='none';document.getElementById('giftSec').scrollIntoView({behavior:'smooth'});confetti(70)}
-function gift(){let g=document.getElementById('gift');if(g.classList.contains('open'))return;g.classList.add('open');setTimeout(()=>document.getElementById('special').classList.add('show'),700);confetti(100)}
-function confetti(n){for(let i=0;i<n;i++){let x=document.createElement('i');x.className='conf';x.style.left=Math.random()*100+'vw';x.style.background=['#fff','#8fb5ff','#6fe7c8','#ffd166','#ff7b9c'][Math.floor(Math.random()*5)];x.style.animationDuration=2+Math.random()*3+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),5500)}}
+
+/* START */
+function startWebsite(){
+
+    document.getElementById("intro").classList.add("hide");
+
+    document.getElementById("main").classList.add("show");
+
+    createParticles();
+
+}
+
+
+/* SCROLL MEMORY ANIMATION */
+
+const memories = document.querySelectorAll(".memory");
+
+function revealMemories(){
+
+    memories.forEach(memory => {
+
+        const top =
+            memory.getBoundingClientRect().top;
+
+        if(top < window.innerHeight * 0.85){
+
+            memory.classList.add("visible");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll",revealMemories);
+
+setTimeout(revealMemories,1000);
+
+
+/* CANDLES */
+
+function blowCandles(){
+
+    const cake =
+        document.getElementById("cake");
+
+    cake.classList.add("done");
+
+    createParticles();
+
+}
+
+
+/* GIFT */
+
+function openGift(){
+
+    const gift =
+        document.getElementById("gift");
+
+    if(!gift.classList.contains("open")){
+
+        gift.classList.add("open");
+
+        createParticles();
+
+    }
+
+}
+
+
+/* PARTICLES */
+
+function createParticles(){
+
+    const symbols = [
+        "✨",
+        "🎉",
+        "🎊",
+        "💙",
+        "⭐",
+        "🤝"
+    ];
+
+    for(let i=0;i<45;i++){
+
+        const p =
+            document.createElement("div");
+
+        p.className="particle";
+
+        p.innerText =
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
+
+        p.style.left =
+            Math.random()*100+"vw";
+
+        p.style.top =
+            "-30px";
+
+        p.style.fontSize =
+            (12+Math.random()*18)+"px";
+
+        p.style.animationDuration =
+            (2.5+Math.random()*2.5)+"s";
+
+        document.body.appendChild(p);
+
+        setTimeout(
+            ()=>p.remove(),
+            5500
+        );
+
+    }
+
+}
+
 </script>
+
 </body>
 </html>
