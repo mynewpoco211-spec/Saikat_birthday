@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
+
 <title>A Surprise For Saikat 🎉</title>
 
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -13,35 +24,52 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
     background:#050509;
     font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
     color:white;
 }
 
-/* =========================
+body{
+    position:fixed;
+    inset:0;
+}
+
+/* =====================================================
    PAGE SYSTEM
-========================= */
+===================================================== */
 
 .page{
     position:fixed;
     inset:0;
+
     width:100%;
     height:100dvh;
+
     display:none;
-    overflow:hidden;
+
     align-items:center;
     justify-content:center;
+
+    overflow:hidden;
+
     text-align:center;
+
     background:
-        radial-gradient(circle at 50% 30%, rgba(100,70,180,.22), transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(255,80,120,.12), transparent 40%),
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(100,70,180,.22),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,80,120,.12),
+            transparent 40%
+        ),
         #050509;
 }
 
@@ -51,10 +79,12 @@ body{
 }
 
 @keyframes pageIn{
+
     from{
         opacity:0;
-        transform:scale(1.05);
+        transform:scale(1.04);
     }
+
     to{
         opacity:1;
         transform:scale(1);
@@ -67,14 +97,14 @@ body{
     z-index:10;
 }
 
-/* =========================
+/* =====================================================
    TEXT
-========================= */
+===================================================== */
 
 .small-title{
     font-size:13px;
     letter-spacing:5px;
-    color:#bdb8d8;
+    color:#bbb5cf;
     margin-bottom:18px;
     text-transform:uppercase;
 }
@@ -83,16 +113,50 @@ h1{
     font-size:clamp(38px,10vw,76px);
     line-height:1.05;
     font-weight:800;
-    background:linear-gradient(90deg,#fff,#d9b8ff,#ff8fbc,#fff);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #d9b8ff,
+            #ff8fbc,
+            #ffffff
+        );
+
     -webkit-background-clip:text;
     color:transparent;
+
     background-size:200%;
+
     animation:textGlow 4s linear infinite;
 }
 
 @keyframes textGlow{
-    0%{background-position:0%}
-    100%{background-position:200%}
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:200%;
+    }
+}
+
+.big-title{
+    font-size:clamp(34px,9vw,68px);
+}
+
+.gradient-text{
+    background:
+        linear-gradient(
+            90deg,
+            #ff7ab8,
+            #c78cff,
+            #6ee7ff
+        );
+
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .subtitle{
@@ -102,482 +166,850 @@ h1{
     line-height:1.6;
 }
 
-.big-title{
-    font-size:clamp(35px,9vw,70px);
-}
-
-.gradient-text{
-    background:linear-gradient(90deg,#ff7ab8,#c78cff,#6ee7ff);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-/* =========================
+/* =====================================================
    BUTTON
-========================= */
+===================================================== */
 
 .btn{
-    margin-top:32px;
+    margin-top:30px;
+
     padding:15px 28px;
+
     border:1px solid rgba(255,255,255,.25);
     border-radius:50px;
+
     background:rgba(255,255,255,.08);
+
     color:white;
-    font-size:14px;
+
+    font-size:13px;
     font-weight:bold;
+
     letter-spacing:2px;
+
     cursor:pointer;
+
     backdrop-filter:blur(12px);
+
     box-shadow:
         0 0 20px rgba(180,120,255,.18),
         inset 0 0 20px rgba(255,255,255,.03);
+
     transition:.3s;
 }
 
 .btn:hover,
 .btn:active{
     transform:scale(1.05);
-    background:rgba(255,255,255,.15);
-    box-shadow:0 0 30px rgba(200,130,255,.4);
+
+    background:
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 30px rgba(200,130,255,.4);
 }
 
 .btn.hidden{
     display:none;
 }
 
-.continue-btn{
-    margin-top:22px;
-}
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 
-/* =========================
-   PAGE 1
-========================= */
+.music-control{
+    position:fixed;
 
-.intro-circle{
-    width:170px;
-    height:170px;
-    margin:0 auto 30px;
+    right:16px;
+    top:16px;
+
+    z-index:500;
+
+    width:44px;
+    height:44px;
+
     border-radius:50%;
-    display:flex;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    display:none;
+
     align-items:center;
     justify-content:center;
-    font-size:75px;
-    background:
-        radial-gradient(circle,#2b173e,#100b18);
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:
-        0 0 30px rgba(194,111,255,.25),
-        0 0 100px rgba(194,111,255,.12);
-    animation:float 3s ease-in-out infinite;
+
+    font-size:18px;
+
+    backdrop-filter:blur(12px);
+
+    cursor:pointer;
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+.music-control.show{
+    display:flex;
 }
 
-/* =========================
+/* =====================================================
    STARS
-========================= */
+===================================================== */
 
 .stars{
-    position:absolute;
+    position:fixed;
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
+
+    z-index:1;
 }
 
 .star{
     position:absolute;
+
     width:3px;
     height:3px;
+
     background:white;
+
     border-radius:50%;
+
     opacity:.5;
-    animation:twinkle 3s infinite alternate;
+
+    animation:
+        twinkle 3s infinite alternate;
 }
 
 @keyframes twinkle{
-    from{opacity:.15;transform:scale(.7)}
-    to{opacity:1;transform:scale(1.4)}
+
+    from{
+        opacity:.15;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.4);
+    }
 }
 
-/* =========================
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro-circle{
+
+    width:170px;
+    height:170px;
+
+    margin:0 auto 30px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:75px;
+
+    background:
+        radial-gradient(
+            circle,
+            #2b173e,
+            #100b18
+        );
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 30px rgba(194,111,255,.25),
+        0 0 100px rgba(194,111,255,.12);
+
+    animation:
+        float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+/* =====================================================
    CAKE
-========================= */
+===================================================== */
 
 .cake-area{
+
     margin:10px auto 5px;
+
     width:280px;
-    height:270px;
+    height:260px;
+
     position:relative;
 }
 
 .cake{
+
     position:absolute;
+
     bottom:20px;
     left:50%;
+
     transform:translateX(-50%);
+
     width:220px;
 }
 
 .cake-top{
+
     height:55px;
-    background:linear-gradient(#ff9eaa,#e85b73);
+
+    background:
+        linear-gradient(
+            #ff9eaa,
+            #e85b73
+        );
+
     border-radius:50%;
+
     position:relative;
+
     z-index:2;
 }
 
 .cake-body{
+
     height:100px;
-    background:linear-gradient(90deg,#ff7187,#ff9ca8,#e95d73);
-    border-radius:0 0 25px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff7187,
+            #ff9ca8,
+            #e95d73
+        );
+
+    border-radius:
+        0 0 25px 25px;
+
     position:relative;
 }
 
 .cream{
+
     position:absolute;
+
     top:42px;
     left:0;
+
     width:100%;
     height:28px;
+
     background:#fff4f6;
+
     border-radius:50%;
+
+    z-index:3;
 }
 
 .candle{
+
     position:absolute;
+
     bottom:120px;
+
     width:12px;
     height:55px;
-    border-radius:5px 5px 2px 2px;
-    background:linear-gradient(90deg,#72d9ff,#fff,#72d9ff);
+
+    border-radius:
+        5px 5px 2px 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #72d9ff,
+            #fff,
+            #72d9ff
+        );
+
     z-index:5;
 }
 
-.candle:nth-child(1){left:65px}
-.candle:nth-child(2){left:104px}
-.candle:nth-child(3){left:143px}
-
 .flame{
+
     position:absolute;
+
     width:15px;
     height:25px;
+
     top:-25px;
     left:50%;
-    transform:translateX(-50%);
-    border-radius:50% 50% 50% 50%;
-    background:linear-gradient(#fff,#ffd34e,#ff7b00);
-    box-shadow:0 0 15px #ffb300;
-    animation:flame 0.6s infinite alternate;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            #fff,
+            #ffd34e,
+            #ff7b00
+        );
+
+    box-shadow:
+        0 0 15px #ffb300;
+
+    animation:
+        flame .6s infinite alternate;
 }
 
 @keyframes flame{
-    from{transform:translateX(-50%) scale(.9) rotate(-3deg)}
-    to{transform:translateX(-50%) scale(1.1) rotate(3deg)}
+
+    from{
+        transform:
+            translateX(-50%)
+            scale(.9)
+            rotate(-3deg);
+    }
+
+    to{
+        transform:
+            translateX(-50%)
+            scale(1.1)
+            rotate(3deg);
+    }
+}
+
+.smoke{
+
+    display:none;
+
+    position:absolute;
+
+    width:8px;
+    height:30px;
+
+    background:
+        rgba(255,255,255,.2);
+
+    border-radius:50%;
+
+    top:-35px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    filter:blur(4px);
 }
 
 .candles-out .flame{
     display:none;
 }
 
-.smoke{
-    display:none;
-    position:absolute;
-    width:8px;
-    height:30px;
-    background:rgba(255,255,255,.2);
-    border-radius:50%;
-    top:-35px;
-    left:50%;
-    transform:translateX(-50%);
-    filter:blur(4px);
-}
-
 .candles-out .smoke{
+
     display:block;
-    animation:smoke 2s ease forwards;
+
+    animation:
+        smoke 2s ease forwards;
 }
 
 @keyframes smoke{
+
     from{
         opacity:.8;
-        transform:translate(-50%,0);
+
+        transform:
+            translate(-50%,0);
     }
+
     to{
         opacity:0;
-        transform:translate(-50%,-45px) scale(1.8);
+
+        transform:
+            translate(-50%,-45px)
+            scale(1.8);
     }
 }
 
 .wish-text{
-    height:24px;
+
+    height:25px;
+
     color:#ffd36b;
+
     font-size:15px;
-    margin-top:5px;
 }
 
-/* =========================
+/* =====================================================
    PHOTO MEMORY
-========================= */
+===================================================== */
 
 .memory-number{
+
     color:#a99abf;
+
     letter-spacing:4px;
+
     font-size:12px;
+
     margin-bottom:16px;
 }
 
 .photo-frame{
+
     width:min(88vw,470px);
-    height:min(62vh,520px);
+
+    height:min(61vh,500px);
+
     margin:auto;
+
     padding:8px;
+
     border-radius:22px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,.35),
-        rgba(255,255,255,.05)
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.05)
+        );
+
     box-shadow:
         0 20px 70px rgba(0,0,0,.7),
         0 0 35px rgba(166,100,255,.15);
 }
 
 .photo-frame img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     border-radius:16px;
+
     display:block;
 }
 
 .memory-title{
-    margin-top:18px;
-    font-size:22px;
+
+    margin-top:17px;
+
+    font-size:21px;
+
     font-weight:bold;
 }
 
 .memory-caption{
+
     margin-top:7px;
+
     color:#aaa9b5;
+
     font-size:14px;
 }
 
-/* =========================
+/* =====================================================
    GIFT
-========================= */
+===================================================== */
 
 .gift-scene{
-    width:280px;
-    height:300px;
-    margin:auto;
+
+    width:290px;
+    height:320px;
+
+    margin:5px auto 0;
+
     position:relative;
+
     cursor:pointer;
 }
 
 .gift{
+
     position:absolute;
+
     width:190px;
-    height:150px;
+    height:160px;
+
     left:50%;
     bottom:30px;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+}
+
+/*
+   SPECIAL PHOTO
+
+   IMPORTANT:
+   object-fit: contain
+   = image will NOT crop
+*/
+
+.gift-photo{
+
+    position:absolute;
+
+    width:190px;
+    height:235px;
+
+    left:0;
+
+    bottom:65px;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    background:#09090d;
+
+    padding:4px;
+
+    border-radius:14px;
+
+    border:4px solid white;
+
+    opacity:0;
+
+    transform:
+        translateY(45px)
+        scale(.75);
+
+    transition:
+        1s cubic-bezier(.2,.8,.2,1);
+
+    z-index:3;
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.25),
+        0 15px 40px rgba(0,0,0,.5);
 }
 
 .gift-box{
+
     position:absolute;
+
     left:0;
     bottom:0;
+
     width:190px;
     height:125px;
+
     border-radius:6px;
-    background:linear-gradient(135deg,#7e43d9,#b86cff,#7032c8);
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7e43d9,
+            #b86cff,
+            #7032c8
+        );
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    z-index:2;
 }
 
 .gift-box:before{
+
     content:"";
+
     position:absolute;
+
     left:80px;
     top:0;
+
     width:30px;
     height:100%;
+
     background:#ffd75e;
 }
 
 .gift-lid{
+
     position:absolute;
+
     left:-10px;
     top:-35px;
+
     width:210px;
     height:42px;
+
     border-radius:6px;
-    background:linear-gradient(135deg,#9d5af0,#d08cff,#793bd2);
-    transition:1s cubic-bezier(.2,.8,.2,1);
+
+    background:
+        linear-gradient(
+            135deg,
+            #9d5af0,
+            #d08cff,
+            #793bd2
+        );
+
+    transition:
+        1s cubic-bezier(.2,.8,.2,1);
+
     z-index:4;
 }
 
 .gift-lid:before{
+
     content:"";
+
     position:absolute;
+
     left:90px;
     top:0;
+
     width:30px;
     height:42px;
+
     background:#ffd75e;
 }
 
 .gift-ribbon{
+
     position:absolute;
+
     width:55px;
     height:55px;
-    border:8px solid #ffd75e;
+
+    border:
+        8px solid #ffd75e;
+
     border-radius:50%;
+
     top:-60px;
     left:68px;
+
     z-index:5;
+
     transition:.7s;
 }
 
 .gift-ribbon:after{
+
     content:"";
+
     position:absolute;
+
     width:55px;
     height:55px;
-    border:8px solid #ffd75e;
+
+    border:
+        8px solid #ffd75e;
+
     border-radius:50%;
+
     left:20px;
     top:-8px;
 }
 
-.gift-photo{
-    position:absolute;
-    width:145px;
-    height:150px;
-    left:22px;
-    bottom:70px;
-    object-fit:cover;
-    border-radius:10px;
-    border:4px solid white;
-    opacity:0;
-    transform:translateY(40px) scale(.8);
-    transition:1s;
-    z-index:3;
-    box-shadow:0 0 35px rgba(255,255,255,.25);
-}
+/* OPEN GIFT */
 
 .gift-scene.open .gift-lid{
-    transform:translateY(-115px) rotate(-7deg);
+
+    transform:
+        translateY(-115px)
+        rotate(-7deg);
+
     opacity:0;
 }
 
 .gift-scene.open .gift-ribbon{
-    transform:translateY(-110px);
+
+    transform:
+        translateY(-110px);
+
     opacity:0;
 }
 
 .gift-scene.open .gift-photo{
+
     opacity:1;
-    transform:translateY(-55px) scale(1);
+
+    transform:
+        translateY(-65px)
+        scale(.95);
 }
 
-/* =========================
-   FINAL
-========================= */
+/* =====================================================
+   FINAL PAGE
+===================================================== */
 
 .final-page{
+
     background:
-        radial-gradient(circle at 50% 45%,rgba(175,85,255,.25),transparent 35%),
-        radial-gradient(circle at 20% 80%,rgba(255,90,140,.18),transparent 30%),
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(175,85,255,.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,90,140,.18),
+            transparent 30%
+        ),
+
         #050509;
 }
 
 .final-icon{
+
     font-size:70px;
-    animation:float 2.5s infinite;
+
+    animation:
+        float 2.5s infinite;
+
     margin-bottom:15px;
 }
 
 .friend-text{
-    margin:22px auto 0;
+
+    margin:
+        22px auto 0;
+
     max-width:600px;
+
     color:#c8c5d1;
+
     line-height:1.8;
+
     font-size:16px;
 }
 
 .signature{
+
     margin-top:25px;
+
     color:#ffb3d1;
+
     font-weight:bold;
+
     letter-spacing:2px;
 }
 
-/* =========================
+/* =====================================================
    CONFETTI
-========================= */
+===================================================== */
 
 #confetti-container{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     overflow:hidden;
-    z-index:100;
+
+    z-index:1000;
 }
 
 .confetti{
+
     position:absolute;
+
     width:8px;
     height:14px;
+
     top:-30px;
-    animation:fall linear forwards;
+
+    animation:
+        fall linear forwards;
 }
 
 @keyframes fall{
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
     }
 }
 
-/* =========================
+/* =====================================================
    HEARTS
-========================= */
+===================================================== */
 
 .heart{
+
     position:fixed;
+
     bottom:-30px;
+
     font-size:20px;
+
     pointer-events:none;
-    z-index:90;
-    animation:heartFloat linear forwards;
+
+    z-index:900;
+
+    animation:
+        heartFloat linear forwards;
 }
 
 @keyframes heartFloat{
+
     0%{
-        transform:translateY(0) scale(.7);
+
+        transform:
+            translateY(0)
+            scale(.7);
+
         opacity:0;
     }
-    15%{opacity:1}
+
+    15%{
+        opacity:1;
+    }
+
     100%{
-        transform:translateY(-110vh) translateX(var(--move)) scale(1.3);
+
+        transform:
+            translateY(-110vh)
+            translateX(var(--move))
+            scale(1.3);
+
         opacity:0;
     }
 }
 
-/* =========================
+/* =====================================================
    FIREWORKS
-========================= */
+===================================================== */
 
 .firework{
+
     position:fixed;
+
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     pointer-events:none;
-    z-index:80;
+
+    z-index:800;
+
     box-shadow:
+
         0 -70px white,
         50px -50px #ff8fb3,
         70px 0 #ffd86b,
@@ -586,23 +1018,31 @@ h1{
         -50px 50px #ff8fb3,
         -70px 0 #ffd86b,
         -50px -50px #9c8cff;
-    animation:explode 1.1s ease-out forwards;
+
+    animation:
+        explode 1.1s ease-out forwards;
 }
 
 @keyframes explode{
+
     0%{
+
         transform:scale(.1);
+
         opacity:1;
     }
+
     100%{
+
         transform:scale(1);
+
         opacity:0;
     }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:500px){
 
@@ -611,9 +1051,12 @@ h1{
     }
 
     .intro-circle{
+
         width:135px;
         height:135px;
+
         font-size:58px;
+
         margin-bottom:25px;
     }
 
@@ -627,12 +1070,14 @@ h1{
     }
 
     .photo-frame{
+
         width:86vw;
-        height:58vh;
+
+        height:57vh;
     }
 
     .memory-title{
-        font-size:20px;
+        font-size:19px;
     }
 
     .memory-caption{
@@ -640,28 +1085,51 @@ h1{
     }
 
     .gift-scene{
+
         transform:scale(.9);
+
+        margin-top:-5px;
+    }
+
+    .gift-photo{
+
+        width:190px;
+        height:235px;
+    }
+
+    .gift-scene.open .gift-photo{
+
+        transform:
+            translateY(-65px)
+            scale(.92);
     }
 
     .friend-text{
+
         font-size:14px;
+
         line-height:1.7;
     }
 
     .btn{
-        padding:14px 24px;
+
+        padding:
+            14px 24px;
+
         font-size:12px;
     }
 }
 
+/* SHORT PHONE */
+
 @media(max-height:650px){
 
     .photo-frame{
-        height:52vh;
+        height:51vh;
     }
 
     .memory-title{
-        margin-top:10px;
+        margin-top:9px;
     }
 
     .memory-caption{
@@ -669,25 +1137,63 @@ h1{
     }
 
     .btn{
-        margin-top:18px;
+        margin-top:17px;
+    }
+
+    .gift-scene{
+        transform:scale(.82);
+        margin-top:-18px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     STARS
-========================= -->
 
-<div class="stars" id="stars"></div>
+<!-- =====================================================
+     MUSIC
+===================================================== -->
 
-<!-- =========================
-     PAGE 1 - INTRO
-========================= -->
+<audio id="birthdayMusic"
+       loop
+       preload="auto">
 
-<section class="page active" id="page0">
+    <source src="music.mp3"
+            type="audio/mpeg">
+
+</audio>
+
+
+<!-- MUSIC BUTTON -->
+
+<button
+    id="musicControl"
+    class="music-control"
+    onclick="toggleMusic()">
+
+    🔊
+
+</button>
+
+
+<!-- STARS -->
+
+<div
+    class="stars"
+    id="stars">
+</div>
+
+
+<!-- =====================================================
+     PAGE 0
+===================================================== -->
+
+<section
+    class="page active"
+    id="page0">
 
     <div class="content">
 
@@ -700,17 +1206,30 @@ h1{
         </div>
 
         <h1>
+
             A Surprise<br>
-            <span class="gradient-text">For Saikat</span>
+
+            <span class="gradient-text">
+                For Saikat
+            </span>
+
         </h1>
 
         <p class="subtitle">
+
             Bro, today is your special day...<br>
-            So here's a little birthday journey for you.
+
+            So here's a little birthday journey
+            made just for you.
+
         </p>
 
-        <button class="btn" onclick="nextPage()">
+        <button
+            class="btn"
+            onclick="startExperience()">
+
             ✨ OPEN YOUR SURPRISE
+
         </button>
 
     </div>
@@ -718,11 +1237,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 2 - CAKE
-========================= -->
+<!-- =====================================================
+     PAGE 1 - CAKE
+===================================================== -->
 
-<section class="page" id="page1">
+<section
+    class="page"
+    id="page1">
 
     <div class="content">
 
@@ -731,26 +1252,61 @@ h1{
         </div>
 
         <h1 class="big-title">
+
             Happy Birthday<br>
-            <span class="gradient-text">Saikat! 🎂</span>
+
+            <span class="gradient-text">
+                Saikat! 🎂
+            </span>
+
         </h1>
 
-        <div class="cake-area" id="cakeArea">
 
-            <div class="candle" style="left:65px">
+        <div
+            class="cake-area"
+            id="cakeArea">
+
+
+            <!-- CANDLE 1 -->
+
+            <div
+                class="candle"
+                style="left:65px">
+
                 <div class="flame"></div>
+
                 <div class="smoke"></div>
+
             </div>
 
-            <div class="candle" style="left:104px">
+
+            <!-- CANDLE 2 -->
+
+            <div
+                class="candle"
+                style="left:104px">
+
                 <div class="flame"></div>
+
                 <div class="smoke"></div>
+
             </div>
 
-            <div class="candle" style="left:143px">
+
+            <!-- CANDLE 3 -->
+
+            <div
+                class="candle"
+                style="left:143px">
+
                 <div class="flame"></div>
+
                 <div class="smoke"></div>
+
             </div>
+
+
+            <!-- CAKE -->
 
             <div class="cake">
 
@@ -764,16 +1320,33 @@ h1{
 
         </div>
 
-        <div class="wish-text" id="wishText">
+
+        <div
+            class="wish-text"
+            id="wishText">
+
             Make a wish before we continue ✨
+
         </div>
 
-        <button class="btn" id="wishBtn" onclick="blowCandles()">
+
+        <button
+            class="btn"
+            id="wishBtn"
+            onclick="blowCandles()">
+
             🕯️ MAKE A WISH
+
         </button>
 
-        <button class="btn continue-btn hidden" id="cakeNext" onclick="nextPage()">
+
+        <button
+            class="btn hidden"
+            id="cakeNext"
+            onclick="nextPage()">
+
             CONTINUE →
+
         </button>
 
     </div>
@@ -781,11 +1354,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 3 - MEMORY 1
-========================= -->
+<!-- =====================================================
+     MEMORY 1
+===================================================== -->
 
-<section class="page" id="page2">
+<section
+    class="page"
+    id="page2">
 
     <div class="content">
 
@@ -793,20 +1368,33 @@ h1{
             MEMORY 01 / 04
         </div>
 
+
         <div class="photo-frame">
-            <img src="memory-02.jpg" alt="Saikat Memory 1">
+
+            <img
+                src="memory-02.jpg"
+                alt="Saikat Memory 1">
+
         </div>
+
 
         <div class="memory-title">
             One More Good Memory 📸
         </div>
 
+
         <div class="memory-caption">
-            Some moments simply deserve a place in the story.
+            Some moments simply deserve
+            a place in the story.
         </div>
 
-        <button class="btn" onclick="nextPage()">
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
             NEXT MEMORY →
+
         </button>
 
     </div>
@@ -814,11 +1402,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 4 - MEMORY 2
-========================= -->
+<!-- =====================================================
+     MEMORY 2
+===================================================== -->
 
-<section class="page" id="page3">
+<section
+    class="page"
+    id="page3">
 
     <div class="content">
 
@@ -826,20 +1416,32 @@ h1{
             MEMORY 02 / 04
         </div>
 
+
         <div class="photo-frame">
-            <img src="memory-03.jpg" alt="Saikat Memory 2">
+
+            <img
+                src="memory-03.jpg"
+                alt="Saikat Memory 2">
+
         </div>
+
 
         <div class="memory-title">
             Good Times 😎
         </div>
 
+
         <div class="memory-caption">
             Keep collecting moments like these.
         </div>
 
-        <button class="btn" onclick="nextPage()">
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
             NEXT MEMORY →
+
         </button>
 
     </div>
@@ -847,11 +1449,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 5 - MEMORY 3
-========================= -->
+<!-- =====================================================
+     MEMORY 3
+===================================================== -->
 
-<section class="page" id="page4">
+<section
+    class="page"
+    id="page4">
 
     <div class="content">
 
@@ -859,20 +1463,33 @@ h1{
             MEMORY 03 / 04
         </div>
 
+
         <div class="photo-frame">
-            <img src="memory-04.jpg" alt="Saikat Memory 3">
+
+            <img
+                src="memory-04.jpg"
+                alt="Saikat Memory 3">
+
         </div>
+
 
         <div class="memory-title">
             Another Chapter 🌟
         </div>
 
+
         <div class="memory-caption">
-            Life is better when there are good people around.
+            Life is better when there are
+            good people around.
         </div>
 
-        <button class="btn" onclick="nextPage()">
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
             NEXT MEMORY →
+
         </button>
 
     </div>
@@ -880,11 +1497,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 6 - MEMORY 4
-========================= -->
+<!-- =====================================================
+     MEMORY 4
+===================================================== -->
 
-<section class="page" id="page5">
+<section
+    class="page"
+    id="page5">
 
     <div class="content">
 
@@ -892,20 +1511,33 @@ h1{
             MEMORY 04 / 04
         </div>
 
+
         <div class="photo-frame">
-            <img src="memory-05.jpg" alt="Saikat Memory 4">
+
+            <img
+                src="memory-05.jpg"
+                alt="Saikat Memory 4">
+
         </div>
+
 
         <div class="memory-title">
             Keep Smiling, Bro 😄
         </div>
 
+
         <div class="memory-caption">
-            More adventures, more laughs and more memories ahead.
+            More adventures, more laughs
+            and more memories ahead.
         </div>
 
-        <button class="btn" onclick="nextPage()">
+
+        <button
+            class="btn"
+            onclick="nextPage()">
+
             SOMETHING SPECIAL →
+
         </button>
 
     </div>
@@ -913,11 +1545,13 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 7 - GIFT
-========================= -->
+<!-- =====================================================
+     GIFT PAGE
+===================================================== -->
 
-<section class="page" id="page6">
+<section
+    class="page"
+    id="page6">
 
     <div class="content">
 
@@ -925,37 +1559,67 @@ h1{
             ONE LAST SURPRISE
         </div>
 
+
         <h1 class="big-title">
+
             There's Something<br>
-            <span class="gradient-text">Inside... 🎁</span>
+
+            <span class="gradient-text">
+                Inside... 🎁
+            </span>
+
         </h1>
+
 
         <p class="subtitle">
             Tap the gift box.
         </p>
 
-        <div class="gift-scene" id="giftScene" onclick="openGift()">
+
+        <div
+            class="gift-scene"
+            id="giftScene"
+            onclick="openGift()">
+
 
             <div class="gift">
+
+
+                <!-- SPECIAL PHOTO -->
 
                 <img
                     class="gift-photo"
                     src="special-memory.jpg"
-                    alt="Special Memory"
-                >
+                    alt="Saikat Special Memory">
+
+
+                <!-- BOX -->
 
                 <div class="gift-box"></div>
 
+
+                <!-- LID -->
+
                 <div class="gift-lid"></div>
 
+
+                <!-- RIBBON -->
+
                 <div class="gift-ribbon"></div>
+
 
             </div>
 
         </div>
 
-        <button class="btn hidden" id="giftNext" onclick="nextPage()">
+
+        <button
+            class="btn hidden"
+            id="giftNext"
+            onclick="nextPage()">
+
             SEE YOUR FINAL WISH →
+
         </button>
 
     </div>
@@ -963,41 +1627,60 @@ h1{
 </section>
 
 
-<!-- =========================
-     PAGE 8 - FINAL
-========================= -->
+<!-- =====================================================
+     FINAL PAGE
+===================================================== -->
 
-<section class="page final-page" id="page7">
+<section
+    class="page final-page"
+    id="page7">
 
     <div class="content">
+
 
         <div class="final-icon">
             🎉
         </div>
 
+
         <div class="small-title">
             HAPPY BIRTHDAY
         </div>
 
+
         <h1>
-            SAikat
+            SAIKAT
         </h1>
+
 
         <h1 class="gradient-text big-title">
+
             Have an Amazing Year!
+
         </h1>
 
+
         <p class="friend-text">
+
             Wishing you a year full of happiness,
-            success, crazy adventures, good health
-            and lots of unforgettable memories.
+            success, crazy adventures,
+            good health and lots of
+            unforgettable memories.
+
             <br><br>
-            Keep smiling, keep enjoying life
-            and keep being the same awesome bro! 🤝
+
+            Keep smiling,
+            keep enjoying life
+            and keep being the same
+            awesome bro! 🤝
+
         </p>
 
+
         <div class="signature">
+
             HAPPY BIRTHDAY, BRO! 🥳
+
         </div>
 
     </div>
@@ -1006,254 +1689,513 @@ h1{
 
 
 <!-- CONFETTI -->
-<div id="confetti-container"></div>
+
+<div
+    id="confetti-container">
+</div>
 
 
 <script>
 
-/* =========================
-   PAGE NAVIGATION
-========================= */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let currentPage = 0;
+
 const totalPages = 8;
+
+let candlesBlown = false;
+
+let giftOpened = false;
+
+let celebrationStarted = false;
+
+let musicPlaying = false;
+
+
+/* =====================================================
+   MUSIC START
+===================================================== */
+
+function startExperience(){
+
+    const music =
+        document.getElementById(
+            "birthdayMusic"
+        );
+
+    music.volume = 0.65;
+
+    music.play()
+        .then(function(){
+
+            musicPlaying = true;
+
+            document
+                .getElementById("musicControl")
+                .classList.add("show");
+
+            document
+                .getElementById("musicControl")
+                .innerHTML = "🔊";
+
+        })
+        .catch(function(error){
+
+            console.log(
+                "Music could not start:",
+                error
+            );
+
+        });
+
+    nextPage();
+}
+
+
+/* =====================================================
+   MUSIC ON / OFF
+===================================================== */
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById(
+            "birthdayMusic"
+        );
+
+    const button =
+        document.getElementById(
+            "musicControl"
+        );
+
+
+    if(music.paused){
+
+        music.play();
+
+        musicPlaying = true;
+
+        button.innerHTML = "🔊";
+
+    }else{
+
+        music.pause();
+
+        musicPlaying = false;
+
+        button.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
 
 function showPage(number){
 
-    if(number < 0 || number >= totalPages) return;
+    if(
+        number < 0 ||
+        number >= totalPages
+    ){
+        return;
+    }
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
 
-    const selected = document.getElementById("page" + number);
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
+
+            page.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    const selected =
+        document.getElementById(
+            "page" + number
+        );
+
 
     if(selected){
-        selected.classList.add("active");
+
+        selected.classList.add(
+            "active"
+        );
+
     }
+
 
     currentPage = number;
 
+
     if(number === 7){
+
         startCelebration();
+
     }
+
 }
+
 
 function nextPage(){
-    showPage(currentPage + 1);
+
+    showPage(
+        currentPage + 1
+    );
+
 }
 
 
-/* =========================
+/* =====================================================
    STARS
-========================= */
+===================================================== */
 
-const starsContainer = document.getElementById("stars");
+const starsContainer =
+    document.getElementById(
+        "stars"
+    );
 
-for(let i=0;i<55;i++){
 
-    const star = document.createElement("div");
+for(let i=0;i<60;i++){
+
+    const star =
+        document.createElement(
+            "div"
+        );
 
     star.className = "star";
 
-    star.style.left = Math.random()*100 + "%";
-    star.style.top = Math.random()*100 + "%";
+    star.style.left =
+        Math.random()*100 + "%";
+
+    star.style.top =
+        Math.random()*100 + "%";
 
     star.style.animationDelay =
         Math.random()*3 + "s";
 
-    starsContainer.appendChild(star);
+    starsContainer.appendChild(
+        star
+    );
+
 }
 
 
-/* =========================
-   CANDLES
-========================= */
-
-let candlesBlown = false;
+/* =====================================================
+   BLOW CANDLES
+===================================================== */
 
 function blowCandles(){
 
-    if(candlesBlown) return;
+    if(candlesBlown){
+        return;
+    }
+
 
     candlesBlown = true;
 
-    const cake = document.getElementById("cakeArea");
 
-    cake.classList.add("candles-out");
+    const cake =
+        document.getElementById(
+            "cakeArea"
+        );
 
-    document.getElementById("wishText").innerHTML =
+
+    cake.classList.add(
+        "candles-out"
+    );
+
+
+    document
+        .getElementById("wishText")
+        .innerHTML =
         "Wish made! ✨ May this year be your best one yet!";
 
-    document.getElementById("wishBtn").classList.add("hidden");
 
-    document.getElementById("cakeNext").classList.remove("hidden");
+    document
+        .getElementById("wishBtn")
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .getElementById("cakeNext")
+        .classList.remove(
+            "hidden"
+        );
+
 
     createMiniConfetti();
+
 }
 
 
-/* =========================
-   GIFT
-========================= */
-
-let giftOpened = false;
+/* =====================================================
+   OPEN GIFT
+===================================================== */
 
 function openGift(){
 
-    if(giftOpened) return;
+    if(giftOpened){
+        return;
+    }
+
 
     giftOpened = true;
 
-    const gift = document.getElementById("giftScene");
 
-    gift.classList.add("open");
+    const gift =
+        document.getElementById(
+            "giftScene"
+        );
 
-    setTimeout(()=>{
 
-        document.getElementById("giftNext")
-            .classList.remove("hidden");
+    gift.classList.add(
+        "open"
+    );
+
+
+    setTimeout(function(){
+
+        document
+            .getElementById("giftNext")
+            .classList.remove(
+                "hidden"
+            );
+
 
         createMiniConfetti();
 
-    },900);
+    },1000);
+
 }
 
 
-/* =========================
-   CONFETTI
-========================= */
+/* =====================================================
+   MINI CONFETTI
+===================================================== */
 
 function createMiniConfetti(){
 
     const container =
-        document.getElementById("confetti-container");
+        document.getElementById(
+            "confetti-container"
+        );
 
-    for(let i=0;i<35;i++){
+
+    for(let i=0;i<40;i++){
 
         const piece =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        piece.className = "confetti";
+
+        piece.className =
+            "confetti";
+
 
         piece.style.left =
             Math.random()*100 + "%";
 
+
         piece.style.animationDuration =
             (2 + Math.random()*2) + "s";
+
 
         piece.style.animationDelay =
             Math.random()*.5 + "s";
 
+
         const colors = [
+
             "#ff6b9d",
             "#ffd166",
             "#7dd3fc",
             "#c084fc",
             "#ffffff"
+
         ];
 
+
         piece.style.background =
-            colors[Math.floor(Math.random()*colors.length)];
+            colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ];
+
 
         piece.style.transform =
-            "rotate(" + Math.random()*360 + "deg)";
+            "rotate(" +
+            Math.random()*360 +
+            "deg";
 
-        container.appendChild(piece);
 
-        setTimeout(()=>{
+        container.appendChild(
+            piece
+        );
+
+
+        setTimeout(function(){
+
             piece.remove();
+
         },4500);
+
     }
+
 }
 
 
-/* =========================
+/* =====================================================
    FINAL CELEBRATION
-========================= */
-
-let celebrationStarted = false;
+===================================================== */
 
 function startCelebration(){
 
-    if(celebrationStarted) return;
+    if(celebrationStarted){
+        return;
+    }
+
 
     celebrationStarted = true;
 
+
     createMiniConfetti();
 
-    /* More confetti */
-    setInterval(()=>{
+
+    setInterval(function(){
+
         createMiniConfetti();
-    },2500);
 
-    /* Floating hearts */
-    setInterval(()=>{
+    },3000);
+
+
+    setInterval(function(){
+
         createHeart();
-    },450);
 
-    /* Fireworks */
-    setInterval(()=>{
+    },500);
+
+
+    setInterval(function(){
+
         createFirework();
-    },1300);
+
+    },1400);
+
 }
 
 
-/* =========================
+/* =====================================================
    HEARTS
-========================= */
+===================================================== */
 
 function createHeart(){
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    heart.className = "heart";
+
+    heart.className =
+        "heart";
+
+
+    const hearts = [
+
+        "❤️",
+        "💜",
+        "💙",
+        "💖",
+        "✨"
+
+    ];
+
 
     heart.innerHTML =
-        ["❤️","💜","💙","💖","✨"][Math.floor(Math.random()*5)];
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
 
     heart.style.left =
         Math.random()*100 + "%";
 
+
     heart.style.setProperty(
         "--move",
-        (Math.random()*180-90) + "px"
+        (Math.random()*180 - 90) + "px"
     );
+
 
     heart.style.animationDuration =
         (4 + Math.random()*4) + "s";
 
-    document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(function(){
+
         heart.remove();
+
     },8000);
+
 }
 
 
-/* =========================
+/* =====================================================
    FIREWORKS
-========================= */
+===================================================== */
 
 function createFirework(){
 
     const firework =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    firework.className = "firework";
+
+    firework.className =
+        "firework";
+
 
     firework.style.left =
         (15 + Math.random()*70) + "%";
 
+
     firework.style.top =
         (15 + Math.random()*45) + "%";
 
-    document.body.appendChild(firework);
 
-    setTimeout(()=>{
+    document.body.appendChild(
+        firework
+    );
+
+
+    setTimeout(function(){
+
         firework.remove();
+
     },1200);
+
 }
 
 </script>
