@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday Saikat 🎉</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#080b12;color:white}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 18px}
+#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(circle,#1a2b4d,#05070c 65%);text-align:center}
+.center{max-width:700px;margin:auto}.tag{letter-spacing:4px;color:#8fb5ff;font-size:13px}
+h1{font-size:clamp(55px,15vw,100px);margin:15px 0}h2{font-size:clamp(38px,9vw,70px)}
+p{line-height:1.7;color:#bbc4d5;font-size:17px}.btn{border:0;border-radius:30px;padding:15px 28px;font-weight:bold;cursor:pointer;font-size:16px}
+.hero{background:linear-gradient(#080b12,#101b2d)}.hero span{color:#8fb5ff}
+#giftSec{background:#0b111d;text-align:center}.gift{width:220px;height:170px;margin:35px auto;position:relative;cursor:pointer}
+.box{position:absolute;bottom:0;left:15px;width:190px;height:120px;background:#17457f;border:2px solid #82b1ef;border-radius:10px}
+.lid{position:absolute;top:18px;left:7px;width:206px;height:52px;background:#2864ad;border:2px solid #8ab9f3;border-radius:10px;z-index:5;transition:1s}
+.ribbon{position:absolute;left:91px;top:0;width:38px;height:170px;background:#ffffff40;z-index:6}
+.bow{position:absolute;top:-3px;left:80px;font-size:40px;z-index:8;transition:1s}
+.photo{position:absolute;left:50%;bottom:30px;width:125px;height:155px;object-fit:cover;border:7px solid white;box-shadow:0 10px 30px #000;opacity:0;transform:translateX(-50%) scale(.2);z-index:3;transition:1s}
+.gift.open .lid{transform:translateY(-100px) rotate(-6deg);opacity:0}.gift.open .bow{transform:translateY(-100px);opacity:0}.gift.open .photo{opacity:1;transform:translate(-50%,-85px) rotate(-4deg) scale(1)}
+.special{opacity:0;transition:.8s;font-size:21px;color:#dce8ff}.special.show{opacity:1}
+#memories{background:#f4f6fa;color:#101522;display:block}.title{text-align:center;margin-bottom:30px}.title p{color:#687388}
+.grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:white;padding:10px;border-radius:18px;box-shadow:0 12px 35px #1112}.card img{width:100%;height:360px;object-fit:cover;border-radius:12px}.caption{padding:13px 6px;font-weight:bold}.caption small{display:block;color:#77839a;margin-top:5px}
+#final{background:radial-gradient(circle,#1a2c4c,#05070c 65%);text-align:center}.cake{font-size:100px}.final{max-width:720px}.final span{color:#8fb5ff}.sign{color:#8fb5ff;font-weight:bold;letter-spacing:2px;margin-top:25px}
+.conf{position:fixed;top:-20px;width:9px;height:16px;z-index:100;animation:fall 4s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.card img{height:430px}}
+</style>
+</head>
+<body>
+<div id="intro"><div class="center" style="padding:28vh 20px">
+<div class="tag">A LITTLE SURPRISE FOR</div><h1>SAIKAT</h1>
+<p>Bro… don't scroll yet 😎<br>Something special is waiting for you.</p>
+<button class="btn" onclick="start()">✨ OPEN YOUR SURPRISE</button>
+</div></div>
+
+<section class="hero"><div class="center" style="text-align:center">
+<div class="tag">TODAY IS YOUR DAY</div><h2>Happy Birthday, <span>Saikat! 🎉</span></h2>
+<p>Some people are part of the journey… and some become the memories that make the journey worth remembering. Today is for one of those people.</p>
+</div></section>
+
+<section id="giftSec"><div class="center" style="text-align:center">
+<h2>🎁 One More Thing...</h2><p>Tap the gift. Your special memory is inside.</p>
+<div class="gift" id="gift" onclick="gift()">
+<div class="box"></div><div class="ribbon"></div><div class="lid"></div><div class="bow">🎀</div>
+<img class="photo" src="images/special-memory.jpg">
+</div>
+<div class="special" id="special">📸 <b>One Special Memory</b><br>Some moments deserve to stay forever.</div>
+</div></section>
+
+<section id="memories"><div style="width:100%">
+<div class="title"><h2>📸 The Memory Wall</h2><p>Five frames. Five versions of you. One awesome journey.</p></div>
+<div class="grid">
+<div class="card"><img src="images/special-memory.jpg"><div class="caption">01 — The Birthday Memory<small>A moment worth keeping forever 🎂</small></div></div>
+<div class="card"><img src="images/memory-02.jpg"><div class="caption">02 — The Vibe<small>Just being yourself. That's the style.</small></div></div>
+<div class="card"><img src="images/memory-03.jpg"><div class="caption">03 — Main Character Energy<small>Confidence level: FULL 😎</small></div></div>
+<div class="card"><img src="images/memory-04.jpg"><div class="caption">04 — Good Times<small>Simple moments become great memories.</small></div></div>
+<div class="card"><img src="images/memory-05.jpg"><div class="caption">05 — Keep Smiling<small>More adventures, more memories, more madness.</small></div></div>
+</div></div></section>
+
+<section id="final"><div class="final">
+<div class="cake">🎂</div><h2>Happy Birthday <span>SAIKAT!</span></h2>
+<p>May this year bring you more happiness, more success, more crazy adventures and countless moments you'll want to remember.<br><br><b>Here's to another amazing chapter. 🥂</b></p>
+<div class="sign">WITH LOTS OF LOVE & FRIENDSHIP ❤️</div>
+</div></section>
+
+<script>
+function start(){document.getElementById('intro').style.display='none';document.getElementById('giftSec').scrollIntoView({behavior:'smooth'});confetti(70)}
+function gift(){let g=document.getElementById('gift');if(g.classList.contains('open'))return;g.classList.add('open');setTimeout(()=>document.getElementById('special').classList.add('show'),700);confetti(100)}
+function confetti(n){for(let i=0;i<n;i++){let x=document.createElement('i');x.className='conf';x.style.left=Math.random()*100+'vw';x.style.background=['#fff','#8fb5ff','#6fe7c8','#ffd166','#ff7b9c'][Math.floor(Math.random()*5)];x.style.animationDuration=2+Math.random()*3+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),5500)}}
+</script>
+</body>
+</html>
